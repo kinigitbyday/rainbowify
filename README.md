@@ -6,11 +6,11 @@ you'll find it).
 
 You'll need:
 
-    - Octave
-    - The octave-image package 
-    - ImageMagick 
+- Octave
+- The octave-image package 
+- ImageMagick 
 
-You can use MATLAB instead of Octave, I guess, but I haven't tested if something
+You can use MATLAB instead of Octave, I guess, but I don't know if something
 breaks when doing this.
 
 Usage - for dummies (like me)!
@@ -18,16 +18,16 @@ Usage - for dummies (like me)!
 
 1. Generate .png files by running 
     ```bash
-    octave --silent --eval "rainbowify(\"*base_image*, *out_folder*, *base_name*, *step*\")"
+    octave --silent --eval "rainbowify(\"base_image, out_folder, base_name, step\")"
     ```
 
-    - `base\_image`: the image to rainbowify. The script has been tested with a color
+    - `base_image`: the image to rainbowify. The script has been tested with a color
       JPG file but shouldn't encounter problems with other color formats.
       Grayscale images might produce errors, though.
-    - `out\_folder`: where you want the animation frames to be output. Keep in
+    - `out_folder`: where you want the animation frames to be output. Keep in
       mind that up to 64 frames will be output. Therefore, an empty folder is
       recommended. If omitted, frames will be output to the current folder.
-    - `base\_name`: the prefix to give each frame image. If omitted, it defaults
+    - `base_name`: the prefix to give each frame image. If omitted, it defaults
       to "out". If you use a non-empty folder (not really recommended) try to
       use a base name that makes the frame images easily distinguishable from
       other files.
@@ -41,7 +41,7 @@ Usage - for dummies (like me)!
     `cd`to the folder where you have the frames obtained from the previous step.
 
      ```bash
-     convert -delay *D* ./*base_name**.png   -coalesce out_file.gif
+     convert -delay D ./base_name*.png   -coalesce out_file.gif
      ```
 
      The `D` parameter determines gif speed (in particular, how many millisecond
@@ -52,8 +52,8 @@ Usage - for dummies (like me)!
      animations and 1x20 for fast ones. For more information on this parameter,
      check the ImageMagick/`convert` documentation.
 
-     Use the `base_name` used in the previous step. If you used an empty folder,
-     as recommended, using `./*.png` instead of the `base_name` works too.
-     Really, just bash stuff. 
+     Replace `base_name` with the base name you used in the previous step (or
+     `out` if you omitted it). If you used an empty folder, as recommended,
+     using `./*.png` works too.  Really, just bash stuff. 
 
      You can use another name for the output file, obviously.
