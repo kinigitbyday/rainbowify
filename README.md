@@ -2,7 +2,10 @@
 Creates frames for a looping, colorful gif
 
 Inspired by Bob Dylan's trippy gif (seriously, just search for those words and
-you'll find it).
+you'll find it). 
+
+**Warning:** If you're sensitive to flashing lights, some of the faster
+animations might not be suited for you.
 
 You'll need:
 
@@ -14,7 +17,7 @@ You can use MATLAB instead of Octave, I guess, but I don't know if something
 breaks when doing this.
 
 Usage - for dummies (like me)!
-=============================
+------------------------------
 
 1. Generate .png files by running 
     ```bash
@@ -41,7 +44,7 @@ Usage - for dummies (like me)!
     `cd`to the folder where you have the frames obtained from the previous step.
 
      ```bash
-     convert -delay D ./base_name*.png   -coalesce out_file.gif
+     convert -delay D ./base_name*.png -coalesce out_file.gif
      ```
 
      The `D` parameter determines gif speed (in particular, how many millisecond
@@ -57,3 +60,8 @@ Usage - for dummies (like me)!
      using `./*.png` works too.  Really, just bash stuff. 
 
      You can use another name for the output file, obviously.
+
+     Try playing around with ImageMagick's many options. Really, I just messed
+     around until I got something I liked.
+
+     Enjoy!
