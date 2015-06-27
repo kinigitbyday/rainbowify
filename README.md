@@ -2,7 +2,8 @@
 Creates frames for a looping, colorful gif
 
 Inspired by Bob Dylan's trippy gif (seriously, just search for those words and
-you'll find it). 
+you'll find it). Stuff like this: http://i.imgur.com/WosTYir.gif (beware, might
+be too flashy).
 
 **Warning:** If you're sensitive to flashing lights, some of the faster
 animations might not be suited for you.
