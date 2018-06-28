@@ -20,10 +20,12 @@ output="$output_filename.gif"
 printf 'Argument base-image is "%s"\n' "$base_image"
 printf 'Argument output is "%s"\n' "$output"
 
-mkdir "rainbowify_temp"
+mkdir rainbowify_temp
 octave --silent --eval "rainbowify(\"$base_image\", \"rainbowify_temp\", \"temp\", 8)"
 
-cd "rainbowify_temp"
+cd rainbowify_temp
 convert -delay 1x20 ./temp*.png -coalesce ../rainbowify_out/$output
 cd ../
-rm -rf "rainbowify_temp"
+rm -rf rainbowify_temp
+cd rainbowify_out
+gifsicle --resize-fit 128x128 $output -o $output_filename-slackmoji.gif

@@ -10,9 +10,10 @@ animations might not be suited for you.
 
 You'll need:
 
-- Octave
+- Octave (`brew install octave`)
 - The octave-image package 
-- ImageMagick 
+- ImageMagick (`brew install imagemagick`)
+- Gifsicle (`brew install gifsicle`)
 
 You can use MATLAB instead of Octave, I guess, but I don't know if something
 breaks when doing this.
