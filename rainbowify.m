@@ -1,6 +1,6 @@
 function rainbowify (img_name, out_folder = ".", base_name = "out", step=4)
 
-if step >=64 || step <= 0:
+if step >=64 || step <= 0
     step = 4
 end
 
