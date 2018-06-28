@@ -3,7 +3,7 @@
 zmodload zsh/zutil
 zparseopts -A ARGUMENTS -base-image: -output:
 
-if [ ! -d ./rainbowify_out ] then;
+if [ ! -d ./rainbowify_out ]; then
 	mkdir rainbowify_out
 fi
 
