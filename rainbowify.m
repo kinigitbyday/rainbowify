@@ -12,8 +12,8 @@ map = colormap(hsv);
 
 for i = 1:step:length(map(:,1))
     newmap = [ map(i:end, :) ; map(1:(i-1), :) ];
-    imwrite(gray_img, newmap, strcat([out_folder "/" base_name num2str(i, "%02d") ".png"]));
-
+    outfile = strcat([out_folder "/" base_name num2str(i, "%02d") ".png"]);
+    imwrite(gray_img, newmap, outfile);
 end
 
 end

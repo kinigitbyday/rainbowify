@@ -24,7 +24,7 @@ mkdir rainbowify_temp
 octave --silent --eval "rainbowify(\"$base_image\", \"rainbowify_temp\", \"temp\", 8)"
 
 cd rainbowify_temp
-convert -delay 1x20 ./temp*.png -coalesce ../rainbowify_out/$output
+convert -delay 1x20 ./temp*.png -transparent black -coalesce ../rainbowify_out/$output
 cd ../
 rm -rf rainbowify_temp
 cd rainbowify_out
