@@ -21,6 +21,11 @@ breaks when doing this.
 Usage - for dummies (like me)!
 ------------------------------
 
+### Easy
+1. `./rainbowify.zsh --base-image myimage.png [--output partyimage.gif]`
+
+### Custom
+
 1. Generate .png files by running 
     ```bash
     octave --silent --eval "rainbowify(\"base_image, out_folder, base_name, step\")"
