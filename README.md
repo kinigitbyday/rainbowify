@@ -18,7 +18,7 @@ You'll need:
 You can use MATLAB instead of Octave, I guess, but I don't know if something
 breaks when doing this.
 
-Usage - for dummies (like me)!
+Usage
 ------------------------------
 
 ### Easy
