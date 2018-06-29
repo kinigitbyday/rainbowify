@@ -1,31 +1,36 @@
-#!/bin/zsh
-
-zmodload zsh/zutil
-zparseopts -A ARGUMENTS -base-image: -output:
+#!/bin/bash
 
 if [ ! -d ./rainbowify_out ]; then
 	mkdir rainbowify_out
 fi
 
-base_image=$ARGUMENTS[--base-image]
+while [ $# -gt 0 ]; do
+
+   if [[ $1 == *"--"* ]]; then
+        v="${1/--/}"
+        declare $v="$2"
+   fi
+
+  shift
+done
 
 base_image_filename=$(basename -- "$base_image")
 base_image_filename="${base_image_filename%.*}"
 
-output=${ARGUMENTS[--output]:-$base_image_filename.gif}
-output_filename=$(basename -- "$output")
+out=${output:-$base_image_filename.gif}
+output_filename=$(basename -- "$out")
 output_filename="${output_filename%.*}"
 output="$output_filename.gif"
 
 printf 'Argument base-image is "%s"\n' "$base_image"
-printf 'Argument output is "%s"\n' "$output"
+printf 'Argument output is "%s"\n' "$out"
 
 mkdir rainbowify_temp
 octave --silent --eval "rainbowify(\"$base_image\", \"rainbowify_temp\", \"temp\", 8)"
 
 cd rainbowify_temp
-convert -delay 1x20 ./temp*.png -transparent black -coalesce ../rainbowify_out/$output
+convert -delay 1x20 ./temp*.png -transparent black -coalesce ../rainbowify_out/$out
 cd ../
 rm -rf rainbowify_temp
 cd rainbowify_out
-gifsicle --resize-fit 128x128 $output -o $output_filename-slackmoji.gif
+gifsicle --resize-fit 128x128 $out -o $output_filename-slackmoji.gif

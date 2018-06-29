@@ -22,7 +22,7 @@ Usage
 ------------------------------
 
 ### Easy
-1. `./rainbowify.zsh --base-image myimage.png [--output partyimage.gif]`
+1. `./rainbowify.zsh --base_image myimage.png [--output partyimage.gif]`
     - Created gifs go into a created `./rainbowify_out` directory
 ### Custom
 
