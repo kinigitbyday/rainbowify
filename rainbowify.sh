@@ -22,14 +22,21 @@ output_filename=$(basename -- "$out")
 output_filename="${output_filename%.*}"
 output="$output_filename.gif"
 
+delay="1x20"
+
 printf 'Argument base-image is "%s"\n' "$base_image"
 printf 'Argument output is "%s"\n' "$out"
 
 mkdir rainbowify_temp
-octave --silent --eval "rainbowify(\"$base_image\", \"rainbowify_temp\", \"temp\", 8)"
+if [[ $base_image == *.gif ]]; then
+    delay=$(identify -verbose $base_image | grep -o "Delay: .*" | head -1 | cut -d " " -f2)
+    octave --silent --eval "rainbowify_gif(\"$base_image\", \"rainbowify_temp\", \"temp\")"
+else
+    octave --silent --eval "rainbowify(\"$base_image\", \"rainbowify_temp\", \"temp\", 8)"
+fi
 
 cd rainbowify_temp
-convert -delay 1x20 ./temp*.png -transparent black -coalesce ../rainbowify_out/$out
+convert -dispose previous -delay $delay ./temp*.png -transparent black -coalesce ../rainbowify_out/$out
 cd ../
 rm -rf rainbowify_temp
 cd rainbowify_out
