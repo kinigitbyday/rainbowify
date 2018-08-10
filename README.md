@@ -15,15 +15,12 @@ You'll need:
 - ImageMagick (`brew install imagemagick`)
 - Gifsicle (`brew install gifsicle`)
 
-You can use MATLAB instead of Octave, I guess, but I don't know if something
-breaks when doing this.
-
 Usage
 ------------------------------
 
 ### Easy
 1. `./rainbowify.sh --base_image myimage.png [--output partyimage.gif]`
-    - Created gifs go into a created `./rainbowify_out` directory
+    - Rainbowified gifs go into a created `./rainbowify_out` directory
 ### Custom
 
 1. Generate .png files by running 
