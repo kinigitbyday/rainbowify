@@ -22,7 +22,7 @@ output_filename=$(basename -- "$out")
 output_filename="${output_filename%.*}"
 output="$output_filename.gif"
 
-delay="1x20"
+delay="1x10"
 
 printf 'Argument base-image is "%s"\n' "$base_image"
 printf 'Argument output is "%s"\n' "$out"
